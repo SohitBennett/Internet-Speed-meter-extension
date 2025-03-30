@@ -1,0 +1,281 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Internet Speed Meter</title>
+  <style>
+    body {
+      width: 250px;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      border-radius: 12px; /* Rounded corners */
+      border: 1px solid #ccc; /* Optional: Add a subtle border */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .speed-container {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .speed-value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .speed-label {
+      font-size: 12px;
+      color: #666;
+    }
+    .unit {
+      font-size: 14px;
+      color: #666;
+    }
+    .download {
+      color: #2196F3;
+    }
+    .upload {
+      color: #4CAF50;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    button:hover {
+      background-color: #e0e0e0;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .last-update {
+      text-align: center;
+      font-size: 10px;
+      color: #999;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    .loading {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      border-top-color: #000;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 5px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .toggle-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .toggle-button.off {
+      background-color: #F44336;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin: 0 0 10px 0;">Internet Speed</h2>
+  
+  <div class="speed-container">
+    <div class="speed-label">DOWNLOAD</div>
+    <div class="speed-value download" id="download-speed">0.00</div>
+    <div class="unit">Mbps</div>
+  </div>
+  
+  <div class="speed-container">
+    <div class="speed-label">UPLOAD</div>
+    <div class="speed-value upload" id="upload-speed">0.00</div>
+    <div class="unit">Mbps</div>
+  </div>
+  
+  <button id="refresh-btn">Test Speed Now</button>
+  <div class="last-update" id="last-update">Last updated: Never</div>
+  
+  <button id="toggle-floating" class="toggle-button">Enable Floating Display</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Internet Speed Meter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 280px;
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-weight: 600;
+      font-size: 22px;
+    }
+    
+    .card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .speed-container {
+      text-align: center;
+      margin: 10px 0;
+    }
+    
+    .speed-label {
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .speed-value {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    
+    .unit {
+      font-size: 16px;
+      color: #666;
+      margin-top: 4px;
+    }
+    
+    .download {
+      color: #2196F3;
+    }
+    
+    .upload {
+      color: #4CAF50;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    #refresh-btn {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    
+    #refresh-btn:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .toggle-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .toggle-button.off {
+      background-color: #F44336;
+    }
+    
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .last-update {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .loading {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      border-top-color: #000;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 5px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Internet Speed</h2>
+  
+  <div class="card">
+    <div class="speed-container">
+      <div class="speed-label">Download</div>
+      <div class="speed-value download" id="download-speed">0.00</div>
+      <div class="unit">Mbps</div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="speed-container">
+      <div class="speed-label">Upload</div>
+      <div class="speed-value upload" id="upload-speed">0.00</div>
+      <div class="unit">Mbps</div>
+    </div>
+  </div>
+  
+  <button id="refresh-btn">Test Speed Now</button>
+  <div class="last-update" id="last-update">Last updated: Never</div>
+  
+  <button id="toggle-floating" class="toggle-button">Enable Floating Display</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

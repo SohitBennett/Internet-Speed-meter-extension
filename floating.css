@@ -1,0 +1,403 @@
+/*
+#speed-meter-floating {
+  position: fixed;
+  z-index: 2147483647;
+  width: 120px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  left: 20px;
+  top: 20px;
+  user-select: none;
+  transition: opacity 0.3s;
+}
+
+#speed-meter-floating:hover {
+  opacity: 1;
+}
+
+#speed-meter-floating.minimized {
+  width: auto;
+  opacity: 0.7;
+}
+
+#speed-meter-floating.minimized:hover {
+  opacity: 1;
+}
+
+.speed-meter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  border-radius: 6px 6px 0 0;
+  cursor: grab;
+}
+
+.speed-meter-title {
+  font-weight: bold;
+  font-size: 10px;
+  color: #555;
+}
+
+.speed-meter-controls {
+  display: flex;
+}
+
+.speed-meter-controls button {
+  background: none;
+  border: none;
+  font-size: 10px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  color: #666;
+}
+
+.speed-meter-controls button:hover {
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+.speed-meter-body {
+  padding: 6px;
+}
+
+.speed-meter-row {
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.speed-meter-label {
+  width: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.speed-meter-value {
+  margin: 0 5px;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.download-speed {
+  color: #2196F3;
+}
+
+.upload-speed {
+  color: #4CAF50;
+}
+
+.speed-meter-unit {
+  color: #666;
+  font-size: 9px;
+}
+*/
+
+
+
+/* Improved Floating Speed Meter Styles - Performance Optimized */
+ /*
+#speed-meter-floating {
+    position: fixed;
+    z-index: 2147483647; 
+    width: 140px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: 12px;
+    left: 20px;
+    top: 20px;
+    user-select: none;
+    transition: opacity 0.2s ease;
+    overflow: hidden;
+  }
+  
+  #speed-meter-floating:hover {
+    opacity: 1;
+  }
+  
+  #speed-meter-floating.minimized {
+    width: auto;
+    min-width: 85px;
+    opacity: 0.9;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background-color: rgba(45, 45, 45, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  #speed-meter-floating.minimized:hover {
+    opacity: 1;
+  }
+  
+  .speed-meter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    border-radius: 10px 10px 0 0;
+    cursor: grab;
+  }
+  
+  .speed-meter-title {
+    font-weight: 600;
+    font-size: 11px;
+    color: #444;
+  }
+  
+  .speed-meter-controls {
+    display: flex;
+  }
+  
+  .speed-meter-controls button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    color: #555;
+    border-radius: 3px;
+  }
+  
+  .speed-meter-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .speed-meter-close:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+  }
+  
+  .speed-meter-body {
+    padding: 8px;
+    background-color: #fff;
+  }
+  
+  .speed-meter-row {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    padding: 2px 4px;
+  }
+  
+  .speed-meter-label {
+    width: 18px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .speed-meter-value {
+    margin: 0 5px;
+    font-weight: 700;
+    flex-grow: 1;
+    text-align: right;
+    font-size: 13px;
+  }
+  
+  .download-speed {
+    color: #2196F3;
+  }
+  
+  .upload-speed {
+    color: #4CAF50;
+  }
+  
+  .speed-meter-unit {
+    color: #666;
+    font-size: 10px;
+  }
+  
+  .minimized-speed {
+    color: #2196F3;
+    font-weight: 600;
+    font-size: 13px;
+    padding-right: 6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  #speed-meter-floating.minimized .speed-meter-controls {
+    margin-left: auto;
+  } 
+    */
+
+
+/* Improved Floating Speed Meter Styles - Fixed Minimized State */
+#speed-meter-floating {
+    position: fixed;
+    z-index: 2147483647; /* Maximum z-index */
+    width: 140px;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* background-color: rgba(45, 45, 45, 0.85); */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: 12px;
+    left: 20px;
+    top: 20px;
+    user-select: none;
+    transition: opacity 0.2s ease;
+    overflow: hidden;
+  }
+  
+  #speed-meter-floating:hover {
+    opacity: 1;
+  }
+  
+  /* Complete overhaul of minimized state to prevent layering issues */
+  #speed-meter-floating.minimized {
+    width: auto;
+    min-width: 85px;
+    opacity: 0.9;
+    border-radius: 20px;
+    background-color: rgba(45, 45, 45, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* Remove any padding that might be causing layering */
+    padding: 0;
+  }
+  
+  #speed-meter-floating.minimized:hover {
+    opacity: 1;
+  }
+  
+  .speed-meter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    border-radius: 10px 10px 0 0;
+    cursor: grab;
+  }
+  
+  /* Adjust header for minimized state */
+  #speed-meter-floating.minimized .speed-meter-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 6px 10px;
+    border-radius: 20px;
+  }
+  
+  .speed-meter-title {
+    font-weight: 600;
+    font-size: 11px;
+    color: #444;
+  }
+  
+  .speed-meter-controls {
+    display: flex;
+  }
+  
+  .speed-meter-controls button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    color: #555;
+    border-radius: 3px;
+  }
+  
+  /* Adjust controls for minimized state */
+  #speed-meter-floating.minimized .speed-meter-controls button {
+    color: #fff;
+  }
+  
+  .speed-meter-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  #speed-meter-floating.minimized .speed-meter-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .speed-meter-close:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+  }
+  
+  #speed-meter-floating.minimized .speed-meter-close:hover {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #ff7a7a;
+  }
+  
+  .speed-meter-body {
+    padding: 8px;
+    background-color: #fff;
+    
+  }
+  
+  .speed-meter-row {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    padding: 2px 4px;
+  }
+  
+  .speed-meter-label {
+    width: 18px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .speed-meter-value {
+    margin: 0 5px;
+    font-weight: 700;
+    flex-grow: 1;
+    text-align: right;
+    font-size: 13px;
+  }
+  
+  .download-speed {
+    color: #2196F3;
+  }
+  
+  .upload-speed {
+    color: #4CAF50;
+  }
+  
+  .speed-meter-unit {
+    color: #666;
+    font-size: 10px;
+  }
+  
+  /* Minimized Speed Display */
+  .minimized-speed {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13px;
+    margin-right: 6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Positioning for the Controls */
+  #speed-meter-floating.minimized .speed-meter-controls {
+    margin-left: auto;
+  }    
